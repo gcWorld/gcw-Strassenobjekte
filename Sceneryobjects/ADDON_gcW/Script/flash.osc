@@ -1,0 +1,68 @@
+'flash
+'basiert auf ampel4.osc von Marcel Kuhnt und Rüdiger Hülsmann
+
+
+{init}
+	0 (S.L.Timer)
+	1 (S.L.Yellow)
+	1 (S.L.Green)
+	0 (S.L.Timer2)
+	0 (S.L.Timer3)
+	0 (S.L.Red)
+	0 (S.L.Dimm)
+	0 (S.L.Timer4)
+{end}
+
+{frame}
+	(L.L.Timer) (L.S.Timegap) + (S.L.Timer) s0
+	2 >
+	{if}
+		0 (S.L.Timer)
+		1 (S.L.Yellow)
+	{else}
+		l0 0.1 >
+		{if}
+			0 (S.L.Yellow)
+		{endif}
+	{endif}
+	(L.L.Timer2) (L.S.Timegap) + (S.L.Timer2) s1
+	2 >
+	{if}
+		0 (S.L.Timer2)
+		0 (S.L.Green)
+	{else}
+		l1 0.1 >
+		{if}
+			1 (S.L.Green)
+		{endif}
+
+		l1 1.9 >
+		{if}
+			0 (S.L.Green)
+		{endif}
+	{endif}
+	
+	(L.L.Timer3) (L.S.Timegap) + (S.L.Timer3) s2
+	1.5 >
+	{if}
+		0 (S.L.Timer3)
+		1 (S.L.Red)
+	{else}
+		l2 0.75 >
+		{if}
+			0 (S.L.Red)
+		{endif}
+	{endif}
+	
+	(L.L.Timer4) (L.S.Timegap) + (S.L.Timer4) s3
+	1 >
+	{if}
+		0 (S.L.Timer4)
+		1 (S.L.Dimm)
+	{else}
+		l3 0.5 >
+		{if}
+			0.5 (S.L.Dimm)
+		{endif}
+	{endif}
+{end}
