@@ -51,12 +51,8 @@ attach_trans
 0.2
 
 [matl]
-bauzaun.tga
+bszaun.tga
 0
-
-[matl_bumpmap]
-bauzaun_NRM.bmp
-0.05
 
 [mass]
 0.25
